@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v0.6.2...v1.0.0) (2026-05-23)
+
+### Build
+
+* **fix:** allow manual publish of release ([afc884b](https://github.com/davidsneighbour/imagemin-lint-staged/commit/afc884b7b93566b81c3f1322b787b53e241b4620))
+* **fix:** fixes as per package manager recommendation ([df7b881](https://github.com/davidsneighbour/imagemin-lint-staged/commit/df7b8812206cc13c5fc6c2cd7f5fd5a510a4976d))
+
 ## [0.6.2](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v0.6.1...v0.6.2) (2026-05-23)
 
 ### Build
