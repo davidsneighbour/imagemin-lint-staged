@@ -37,7 +37,7 @@
     "lint-staged"
   ],
   "scripts": {
-    "test": "jest --runInBand",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --runInBand",
     "release": "standard-version"
   },
   "lint-staged": {
@@ -47,15 +47,6 @@
     "*.{js,jsx,json,css}": [
       "prettier --write"
     ]
-  },
-  "babel": {
-    "env": {
-      "test": {
-        "presets": [
-          "@babel/preset-env"
-        ]
-      }
-    }
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -85,5 +76,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "type": "module"
 }

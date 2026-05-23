@@ -1,15 +1,19 @@
-import path from "path";
-import fs from "fs";
-import child_process from "child_process";
-import promisify from "util.promisify";
+import path from 'node:path';
+import { stat } from 'node:fs/promises';
+import { exec as _exec } from 'node:child_process';
+import { promisify } from 'node:util';
+import { fileURLToPath } from 'node:url';
 
-const stat = promisify(fs.stat);
-const exec = promisify(child_process.exec);
+import { minifyFile } from '../lib/index.js';
 
-describe("index module", () => {
+const exec = promisify(_exec);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+describe('index module', () => {
   const FILENAMES =
-    "./__fixtures__/test.gif ./__fixtures__/test.jpg ./__fixtures__/test.png ./__fixtures__/test.svg".split(
-      " "
+    './__fixtures__/test.gif ./__fixtures__/test.jpg ./__fixtures__/test.png ./__fixtures__/test.svg'.split(
+      ' '
     );
 
   const stats = () =>
@@ -20,16 +24,12 @@ describe("index module", () => {
       })
     );
 
-  const { minifyFile } = require("../lib");
-
-  describe("minifyFile function", () => {
-    it("should work as expected", async () => {
+  describe('minifyFile function', () => {
+    it('should work as expected', async () => {
       const before = await stats();
-      await Promise.all(
-        FILENAMES.map((f) => minifyFile(path.resolve(__dirname, f)))
-      );
+      await Promise.all(FILENAMES.map((f) => minifyFile(path.resolve(__dirname, f))));
       const after = await stats();
-      await exec(`git checkout .`);
+      await exec('git checkout .');
       expect(after).not.toEqual(before);
 
       expect(before).toMatchSnapshot();
