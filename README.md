@@ -1,25 +1,26 @@
 # imagemin-lint-staged
+
 > imagemin CLI designed for lint-staged usage with sensible defaults
 
 [![Version][npm-image]][npm-url] [![PR Workflow][github-workflows-pr-image]][github-workflows-pr-url]
 
+This started as a fork of [tomchentw/imagemin-lint-staged](https://github.com/tomchentw/imagemin-lint-staged), but the original repository seems to be [unmaintained](https://github.com/tomchentw/imagemin-lint-staged/issues) and I wanted the error messages to disappear. So I took the liberty to update the dependencies and make it work again. If you are the original author and want to merge this back, please let me know.
 
 ## Installation
 
 ```sh
-npm i --save-dev imagemin-lint-staged
+npm i --save-dev @davidsneighbour/imagemin-lint-staged
 ```
 
 ## Usage
 
-Use in conjuntion with [lint-staged][lint-staged]. In your `package.json`
+Use in conjunction with [lint-staged][lint-staged]. In your `package.json`
 
 ```json
-  "lint-staged": {
-    "*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged"]
-  },
+"lint-staged": {
+  "*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged"]
+},
 ```
-
 
 ## Options
 
