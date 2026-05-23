@@ -17,13 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidsneighbour/imagemin-lint-staged"
+    "url": "git+https://github.com/davidsneighbour/imagemin-lint-staged.git"
   },
   "bugs": {
     "url": "https://github.com/davidsneighbour/imagemin-lint-staged/issues"
   },
   "homepage": "https://github.com/davidsneighbour/imagemin-lint-staged/",
-  "bin": "bin/index.js",
+  "bin": {
+    "imagemin-lint-staged": "bin/index.js"
+  },
   "files": [
     "bin/",
     "lib/",
