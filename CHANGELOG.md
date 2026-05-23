@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.1](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v0.6.0...v0.6.1) (2026-05-23)
+
+
+### Features
+
+* move to module format ([0c7afb5](https://github.com/davidsneighbour/imagemin-lint-staged/commit/0c7afb51817e374e3a07db93a45692d21e4f7552))
+
 ## [0.6.0](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v0.5.2...v0.6.0) (2024-01-22)
 
 ### 0.5.2 (2024-01-22)
