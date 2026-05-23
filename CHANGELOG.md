@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.6.2](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v0.6.1...v0.6.2) (2026-05-23)
+
+### Build
+
+* **feat:** migrate to release-it workflow ([05cdf1e](https://github.com/davidsneighbour/imagemin-lint-staged/commit/05cdf1e31690eeec238c9f94307d4b4b9005f8b0))
+
+### CI
+
+* **feat:** add publishing workflow ([66acab8](https://github.com/davidsneighbour/imagemin-lint-staged/commit/66acab8bcfd004aebc94a03bae9e90ff4175353b))
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [0.6.1](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v0.6.0...v0.6.1) (2026-05-23)
