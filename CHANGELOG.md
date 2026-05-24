@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v1.0.1...v2.0.0) (2026-05-24)
+
+### Features
+
+* optimise default image compression settings ([b124966](https://github.com/davidsneighbour/imagemin-lint-staged/commit/b1249664d48149008a00712b4afb7eeb1fd2e65f))
+* support ESM cosmiconfig files ([34698af](https://github.com/davidsneighbour/imagemin-lint-staged/commit/34698af4ea97f1c6bed2da0f4d5cb5f895486d49))
+
+### Documentation
+
+* document configuration options ([e5c6379](https://github.com/davidsneighbour/imagemin-lint-staged/commit/e5c637963eedf12086679a7f6c57d295c1111358))
+* document ESM configuration support ([1c0e6e7](https://github.com/davidsneighbour/imagemin-lint-staged/commit/1c0e6e790c528778d9efcbb4c43b327a9d20ca3c))
+* explain lossless default configuration ([bbf3839](https://github.com/davidsneighbour/imagemin-lint-staged/commit/bbf3839603c8ce76bf36183b97c797447dc656c2))
+* **fix:** condensing the config file names a little bit ([abebe41](https://github.com/davidsneighbour/imagemin-lint-staged/commit/abebe4100aafe84b78896879f6fbc52cced22ef4))
+
 ## [1.0.1](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v1.0.0...v1.0.1) (2026-05-24)
 
 ### Build
