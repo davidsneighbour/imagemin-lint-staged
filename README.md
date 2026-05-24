@@ -32,22 +32,10 @@ Supported configuration locations include:
 
 * `package.json`, using the `imagemin-lint-staged` property
 * `.imagemin-lint-stagedrc`
-* `.imagemin-lint-stagedrc.json`
-* `.imagemin-lint-stagedrc.yaml`
-* `.imagemin-lint-stagedrc.yml`
-* `.imagemin-lint-stagedrc.js`
-* `.imagemin-lint-stagedrc.ts`
-* `.imagemin-lint-stagedrc.cjs`
+* `.imagemin-lint-stagedrc.{json,yaml,yml,js,ts,cjs}`
 * `.config/imagemin-lint-stagedrc`
-* `.config/imagemin-lint-stagedrc.json`
-* `.config/imagemin-lint-stagedrc.yaml`
-* `.config/imagemin-lint-stagedrc.yml`
-* `.config/imagemin-lint-stagedrc.js`
-* `.config/imagemin-lint-stagedrc.ts`
-* `.config/imagemin-lint-stagedrc.cjs`
-* `imagemin-lint-staged.config.js`
-* `imagemin-lint-staged.config.ts`
-* `imagemin-lint-staged.config.cjs`
+* `.config/imagemin-lint-stagedrc.{json,yaml,yml,js,ts,cjs}`
+* `imagemin-lint-staged.config.{js,ts,cjs}`
 
 The package uses cosmiconfig's synchronous API, so `.mjs` configuration files are not supported. If your project uses `"type": "module"`, prefer JSON/YAML configuration or a `.cjs` config file to avoid module format ambiguity.
 
