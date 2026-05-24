@@ -26,18 +26,18 @@ Use in conjunction with [lint-staged][lint-staged]. In your `package.json`
 
 The package uses [cosmiconfig][cosmiconfig] with the module name `imagemin-lint-staged`. This means you can configure the imagemin plugins from a project-level configuration file instead of changing the package source.
 
-With the current implementation, configuration is searched from the current working directory. For normal `lint-staged` usage this is usually the repository root, because `lint-staged` is run from there.
+Configuration is searched from the current working directory. For normal `lint-staged` usage this is usually the repository root, because `lint-staged` is run from there.
 
 Supported configuration locations include:
 
 * `package.json`, using the `imagemin-lint-staged` property
 * `.imagemin-lint-stagedrc`
-* `.imagemin-lint-stagedrc.{json,yaml,yml,js,ts,cjs}`
+* `.imagemin-lint-stagedrc.{json,yaml,yml,js,ts,mjs,cjs}`
 * `.config/imagemin-lint-stagedrc`
-* `.config/imagemin-lint-stagedrc.{json,yaml,yml,js,ts,cjs}`
-* `imagemin-lint-staged.config.{js,ts,cjs}`
+* `.config/imagemin-lint-stagedrc.{json,yaml,yml,js,ts,mjs,cjs}`
+* `imagemin-lint-staged.config.{js,ts,mjs,cjs}`
 
-The package uses cosmiconfig's synchronous API, so `.mjs` configuration files are not supported. If your project uses `"type": "module"`, prefer JSON/YAML configuration or a `.cjs` config file to avoid module format ambiguity.
+The package uses cosmiconfig's asynchronous API, so ESM configuration files are supported. In ESM projects, prefer `imagemin-lint-staged.config.js` or `imagemin-lint-staged.config.mjs` with `export default`.
 
 ### Example using `package.json`
 
@@ -92,10 +92,10 @@ The package uses cosmiconfig's synchronous API, so `.mjs` configuration files ar
 }
 ```
 
-### Example using `imagemin-lint-staged.config.cjs`
+### Example using `imagemin-lint-staged.config.mjs`
 
 ```js
-module.exports = {
+export default {
   gifsicle: {
     interlaced: false,
   },
@@ -116,6 +116,18 @@ module.exports = {
         },
       },
     ],
+  },
+};
+```
+
+### Example using `imagemin-lint-staged.config.js` in an ESM project
+
+When your project has `"type": "module"` in `package.json`, `.js` config files can use ESM syntax:
+
+```js
+export default {
+  optipng: {
+    optimizationLevel: 7,
   },
 };
 ```
