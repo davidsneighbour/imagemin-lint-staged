@@ -39,19 +39,63 @@ Supported configuration locations include:
 
 The package uses cosmiconfig's asynchronous API, so ESM configuration files are supported. In ESM projects, prefer `imagemin-lint-staged.config.js` or `imagemin-lint-staged.config.mjs` with `export default`.
 
+### Default configuration
+
+The built-in defaults are configured for lossless optimisation. They favour smaller files while avoiding settings that intentionally reduce image quality, resize images, remove required SVG scaling behaviour, or remove basic SVG accessibility metadata.
+
+```js
+export default {
+  gifsicle: {
+    interlaced: false,
+    optimizationLevel: 3,
+  },
+  jpegtran: {
+    progressive: true,
+  },
+  optipng: {
+    optimizationLevel: 7,
+    bitDepthReduction: true,
+    colorTypeReduction: true,
+    paletteReduction: true,
+    interlaced: null,
+    errorRecovery: false,
+  },
+  svgo: {
+    plugins: [
+      {
+        name: 'preset-default',
+        params: {
+          overrides: {
+            removeViewBox: false,
+            cleanupIds: false,
+            removeDesc: false,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
 ### Example using `package.json`
 
 ```json
 {
   "imagemin-lint-staged": {
     "gifsicle": {
-      "interlaced": true
+      "interlaced": false,
+      "optimizationLevel": 3
     },
     "jpegtran": {
       "progressive": true
     },
     "optipng": {
-      "optimizationLevel": 5
+      "optimizationLevel": 7,
+      "bitDepthReduction": true,
+      "colorTypeReduction": true,
+      "paletteReduction": true,
+      "interlaced": null,
+      "errorRecovery": false
     },
     "svgo": {
       "plugins": [
@@ -59,7 +103,9 @@ The package uses cosmiconfig's asynchronous API, so ESM configuration files are 
           "name": "preset-default",
           "params": {
             "overrides": {
-              "removeViewBox": false
+              "removeViewBox": false,
+              "cleanupIds": false,
+              "removeDesc": false
             }
           }
         }
@@ -74,7 +120,12 @@ The package uses cosmiconfig's asynchronous API, so ESM configuration files are 
 ```json
 {
   "optipng": {
-    "optimizationLevel": 7
+    "optimizationLevel": 7,
+    "bitDepthReduction": true,
+    "colorTypeReduction": true,
+    "paletteReduction": true,
+    "interlaced": null,
+    "errorRecovery": false
   },
   "svgo": {
     "plugins": [
@@ -83,7 +134,8 @@ The package uses cosmiconfig's asynchronous API, so ESM configuration files are 
         "params": {
           "overrides": {
             "removeViewBox": false,
-            "cleanupIds": false
+            "cleanupIds": false,
+            "removeDesc": false
           }
         }
       }
@@ -98,12 +150,18 @@ The package uses cosmiconfig's asynchronous API, so ESM configuration files are 
 export default {
   gifsicle: {
     interlaced: false,
+    optimizationLevel: 3,
   },
   jpegtran: {
     progressive: true,
   },
   optipng: {
     optimizationLevel: 7,
+    bitDepthReduction: true,
+    colorTypeReduction: true,
+    paletteReduction: true,
+    interlaced: null,
+    errorRecovery: false,
   },
   svgo: {
     plugins: [
@@ -112,6 +170,8 @@ export default {
         params: {
           overrides: {
             removeViewBox: false,
+            cleanupIds: false,
+            removeDesc: false,
           },
         },
       },
@@ -138,12 +198,25 @@ All options are optional. Each top-level key configures one imagemin plugin.
 
 | Option | Plugin | Default |
 | --- | --- | --- |
-| `gifsicle` | [`imagemin-gifsicle`][imagemin-gifsicle] | `{ "interlaced": true }` |
+| `gifsicle` | [`imagemin-gifsicle`][imagemin-gifsicle] | `{ "interlaced": false, "optimizationLevel": 3 }` |
 | `jpegtran` | [`imagemin-jpegtran`][imagemin-jpegtran] | `{ "progressive": true }` |
-| `optipng` | [`imagemin-optipng`][imagemin-optipng] | `{ "optimizationLevel": 5 }` |
-| `svgo` | [`imagemin-svgo`][imagemin-svgo] | `preset-default` with `removeViewBox: false` |
+| `optipng` | [`imagemin-optipng`][imagemin-optipng] | `{ "optimizationLevel": 7, "bitDepthReduction": true, "colorTypeReduction": true, "paletteReduction": true, "interlaced": null, "errorRecovery": false }` |
+| `svgo` | [`imagemin-svgo`][imagemin-svgo] | `preset-default` with `removeViewBox: false`, `cleanupIds: false`, and `removeDesc: false` |
 
 The option object for each key is passed directly to the matching imagemin plugin.
+
+### Default option details
+
+* `gifsicle.interlaced` is set to `false` because interlacing can increase GIF file size. This does not reduce image quality; it only disables progressive-style loading for GIF files.
+* `gifsicle.optimizationLevel` is set to `3`, the strongest optimisation level supported by gifsicle through this plugin. It tries more optimisation methods and is slower than lower levels, but usually gives smaller files.
+* `jpegtran.progressive` is set to `true` because jpegtran can convert JPEG files to progressive JPEG losslessly. This keeps image data intact while often improving file size and loading behaviour.
+* `optipng.optimizationLevel` is set to `7`, the strongest optimisation level exposed by this plugin. It is slower than the previous default of `5`, but performs more compression trials.
+* `optipng.bitDepthReduction`, `optipng.colorTypeReduction`, and `optipng.paletteReduction` are enabled because these are lossless PNG reductions when optipng can prove that the resulting image remains equivalent.
+* `optipng.interlaced` is set to `null` so optipng preserves the input file's interlace state. This avoids changing progressive-loading behaviour unless you explicitly configure it.
+* `optipng.errorRecovery` is set to `false` so corrupt or invalid PNG files fail instead of being silently recovered during a pre-commit optimisation step.
+* `svgo.removeViewBox` is disabled because removing `viewBox` can break SVG scaling.
+* `svgo.cleanupIds` is disabled because renamed or minified IDs can cause collisions or broken references when SVGs are inlined, styled, scripted, or referenced externally.
+* `svgo.removeDesc` is disabled so existing `<desc>` elements are preserved for accessibility and documentation context.
 
 Important behaviour:
 
