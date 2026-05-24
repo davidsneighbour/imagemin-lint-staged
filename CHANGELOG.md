@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.1](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v1.0.0...v1.0.1) (2026-05-24)
+
+### Build
+
+* **fix:** re-add packages missing ([9a08e7b](https://github.com/davidsneighbour/imagemin-lint-staged/commit/9a08e7b04e4dfef8dead2bbad35a3b2ca6aa4f35))
+
+### Chores
+
+* cleanup, remove pnpm and travis setup ([b9c7f1e](https://github.com/davidsneighbour/imagemin-lint-staged/commit/b9c7f1e9f581bbe40e7dcd89157bde5213c8f4c1))
+* **deps:** update dependencies ([99864da](https://github.com/davidsneighbour/imagemin-lint-staged/commit/99864dadd7688f2058f9302890b7d86e2259fd48))
+* remove pnpm lock file ([95901ff](https://github.com/davidsneighbour/imagemin-lint-staged/commit/95901ff85ba75ee92eeb82ed88f0eb43bdb805ce))
+* **revert:** remove pnpm lock file ([b3fc64f](https://github.com/davidsneighbour/imagemin-lint-staged/commit/b3fc64fcd6d7d06ff10ba0837be4713cce519dd6))
+* update LICENSE and editorconfig ([7e50247](https://github.com/davidsneighbour/imagemin-lint-staged/commit/7e50247d507eb1e42441803d1f4d6a4fc749d4c7))
+
+### CI
+
+* **fix:** remove version from pnpm workflow ([c8a9146](https://github.com/davidsneighbour/imagemin-lint-staged/commit/c8a9146fb360e84eaa7dc376983fa8d90d8d3026))
+* **fix:** update PR workflow and use current node versions ([402ed08](https://github.com/davidsneighbour/imagemin-lint-staged/commit/402ed0818748f894b1bdde750b5eecbcf1e62c39))
+* migrate codeclimate to qlty ([72476a0](https://github.com/davidsneighbour/imagemin-lint-staged/commit/72476a00e39540fe1f9a79c8975d6036a6c8eaca))
+
+### Tests
+
+* update tests ([9d1232f](https://github.com/davidsneighbour/imagemin-lint-staged/commit/9d1232f11a3e7ed1332fc2a3c9600eb51d0cf6a2))
+
 ## [1.0.0](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v0.6.2...v1.0.0) (2026-05-23)
 
 ### Build
