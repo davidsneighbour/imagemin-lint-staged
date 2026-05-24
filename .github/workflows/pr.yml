@@ -20,16 +20,15 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           persist-credentials: true
-      - uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          package-manager-cache: false
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
 
       - name: Run tests
-        run: pnpm test
+        run: npm test

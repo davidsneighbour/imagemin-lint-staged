@@ -1,5 +1,0 @@
-allowBuilds:
-  gifsicle: true
-  jpegtran-bin: true
-  optipng-bin: true
-  unrs-resolver: true
