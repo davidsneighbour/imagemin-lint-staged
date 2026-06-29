@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.0.0](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v2.0.0...v3.0.0) (2026-06-29)
+
+### ⚠ BREAKING CHANGES
+
+* **security:** config keys for the image-type-specific sections change from
+'gifsicle' / 'jpegtran' / 'optipng' to 'gif' / 'jpeg' / 'png', reflecting the
+new sharp option names. JPEG optimisation is now lossy (quality 85 default,
+configurable) rather than lossless jpegtran-style recompression; PNG and GIF
+remain effectively lossless at high compression settings.
+
+npm audit: 43 vulnerabilities → 0
+
+Signed-off-by: Patrick Kollitsch <davidsneighbourdev+gh@gmail.com>
+
+### Bug Fixes
+
+* **security:** replace imagemin binary plugins with sharp, fix undici and js-yaml CVEs ([351e267](https://github.com/davidsneighbour/imagemin-lint-staged/commit/351e267b819c88d198eccdfe2c48955a387e1223))
+
 ## [2.0.0](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v1.0.1...v2.0.0) (2026-05-24)
 
 ### Features
