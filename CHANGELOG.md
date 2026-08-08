@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.0.1](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v3.0.0...v3.0.1) (2026-08-08)
+
+### Bug Fixes
+
+* **security:** bump release-it to fix vulnerable undici dependency ([221c655](https://github.com/davidsneighbour/imagemin-lint-staged/commit/221c6551e9bd751e608830d9f207a5c5a08fcde0))
+
 ## [3.0.0](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v2.0.0...v3.0.0) (2026-06-29)
 
 ### ⚠ BREAKING CHANGES
