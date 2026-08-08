@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v3.0.1...v3.0.2) (2026-08-08)
+
+### Build
+
+* **deps:** update dependencies ([56a6b9b](https://github.com/davidsneighbour/imagemin-lint-staged/commit/56a6b9b0ac3b25837bc88bc7fd327bda6bacebf8))
+* **deps:** update dependencies ([bb329c2](https://github.com/davidsneighbour/imagemin-lint-staged/commit/bb329c2ba25d99c431e50c86dbb612fc6cbe41d0))
+
 ## [3.0.1](https://github.com/davidsneighbour/imagemin-lint-staged/compare/v3.0.0...v3.0.1) (2026-08-08)
 
 ### Bug Fixes
